@@ -12581,7 +12581,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </ul>
 <p><strong>Justification</strong></p>
 <ul>
-<li>Adaboost is the one of most popular boosting algorithms for binary classification and I would like to explore it for this exercise.</li>
+<li>Adaboost is the one of most popular boosting algorithms for binary classification and I would like to explore it for this exercise. Our dataset is quite large but not very noisy and it does not contain many outliers. Furthermore there is some class imbalance in our dataset, therefore Adaboost is a good choice. In general, the reason for using ensemble methods over weak classifiers like decision trees is that we are able to reduce overfitting without substantially increasing error due to bias.</li>
 </ul>
 <h3 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h3><p><strong>Real-world application:</strong> Random Forests have been used for <a href="https://www.sciencedirect.com/science/article/pii/S2213158214001326">detection and prediction of Alzheimer's disease</a>.</p>
 <p><strong>Strenghts:</strong></p>
@@ -12599,7 +12599,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </ul>
 <p><strong>Justification</strong></p>
 <ul>
-<li>Random Forests are easy to implement and widely used. Also they deal well with categorical data which is abundant in our dataset.</li>
+<li>Random Forests are easy to implement and widely used. Also they deal well with categorical data which is abundant in our dataset. Like with Adaboost, ensemble methods like Random Forests have advantages over classifiers like decision trees because they reduce overfitting without substantially increasing error due to bias.</li>
 </ul>
 <h3 id="Logistic-Regression">Logistic Regression<a class="anchor-link" href="#Logistic-Regression">&#182;</a></h3><p><strong>Real-world application:</strong> Logistic regression hast been used to <a href="https://www.researchgate.net/publication/209803049_Application_of_logistic_regression_model_and_its_validation_for_landslide_susceptibility_mapping_using_GIS_and_remote_sensing_data_journals">evaluate the hazard of landslides at Penang, Malaysia</a>.</p>
 <p><strong>Strenghts:</strong></p>
@@ -12755,9 +12755,9 @@ In the code block below, you will need to implement the following:</p>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span>
 
 <span class="c1"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate the number of samples for 1%, 10%, and 100% of the training data</span>
 <span class="c1"># HINT: samples_100 is the entire training set i.e. len(y_train)</span>
@@ -13060,7 +13060,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">make_scorer</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">())</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># TODO: Create the parameters list you wish to tune, using a dictionary if needed.</span>
 <span class="c1"># HINT: parameters = {&#39;parameter_1&#39;: [value1, value2], &#39;parameter_2&#39;: [value1, value2]}</span>
